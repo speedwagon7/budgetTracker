@@ -10,7 +10,8 @@
 
 .mainRow {
   display: grid;
-  grid-template-rows: 20px calc(100vh-20px);
+  grid-template-rows: 20% 80%;
+  padding: 12px;
 }
 
 .rowContent {
@@ -18,13 +19,16 @@
   grid-template-columns: 1fr 2fr;
 }
 
-.rowHeader.income {
-  color: #36bd9f;
+.rowObject {
+  background-color: #142138;
 }
 
-.rowHeader.expenses {
-  color: #e65b8e;
+.dataTable {
+margin: 0px 14px 0px 0px;
 }
+
+
+
 
 
 

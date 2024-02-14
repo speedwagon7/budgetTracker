@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Visualisation = () => {
+const RowVisualisation = () => {
     return (
         <div>Visualisation</div>
     )
 }
 
-export default Visualisation
+export default RowVisualisation

@@ -1,7 +1,11 @@
-import React from 'react'
-import HeaderRow from './Header/Container'
-import IncomeRow from './Income/Container'
-import ExpensesRow from './Expenses/Container'
+import React from 'react';
+import HeaderRow from './Header/Container';
+import RowHeader from './RowHeader';
+import RowTable from './RowTable';
+import RowVisualisation from './RowVisualisation';
+import IncomeData from '../MockData/MOCK_DATA_Income.json';
+import ExpensesData from '../MockData/MOCK_DATA_Expenses.json';
+
 
 
 const LandingPage = () => {
@@ -12,11 +16,31 @@ const LandingPage = () => {
                     <div className="headerRow">
                         <HeaderRow />
                     </div>
-                    <div className="incomeRow mainRow">
-                        <IncomeRow />
+                    <div className="mainRow">
+                        <div className="incomeHeader">
+                            <RowHeader headerText="Income" />
+                        </div>
+                        <div className="rowContent">
+                            <div className="dataTable rowObject">
+                                <RowTable data={IncomeData} className="incomeTable" />
+                            </div>
+                            <div className="rowObject">
+                                <RowVisualisation />
+                            </div>
+                        </div>
                     </div>
-                    <div className="expensesRow mainRow">
-                        <ExpensesRow />
+                    <div className="mainRow">
+                        <div className="expensesHeader">
+                            <RowHeader headerText="Expenses" />
+                        </div>
+                        <div className="rowContent">
+                            <div className="dataTable rowObject">
+                                <RowTable data={ExpensesData} className="expensesTable" />
+                            </div>
+                            <div className="rowObject">
+                                <RowVisualisation />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
