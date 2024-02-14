@@ -1,5 +1,6 @@
 import React from 'react';
-import HeaderRow from './Header/Container';
+import DateContainer from './DateContainer';
+import TotalContainer from './TotalContainer';
 import RowHeader from './RowHeader';
 import RowTable from './RowTable';
 import RowVisualisation from './RowVisualisation';
@@ -14,7 +15,18 @@ const LandingPage = () => {
             <section>
                 <div className="mainLayout">
                     <div className="headerRow">
-                        <HeaderRow />
+                        <div className="rowObject dateContainer">
+                            <DateContainer content="January" />
+                        </div>
+                        <div className="rowObject incomeHeader">
+                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        </div>
+                        <div className="rowObject expensesHeader">
+                            <TotalContainer content="Total Expenses" className="expensesHeader" />
+                        </div>
+                        <div className="rowObject savingsHeader">
+                            <TotalContainer content="Total Savings" className="savingsHeader" />
+                        </div>
                     </div>
                     <div className="mainRow">
                         <div className="incomeHeader">

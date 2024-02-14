@@ -22,18 +22,8 @@ td:nth-child(4) {
 
 }
 
-.incomeHeader {
-    color: #36bd9f;
-    font-size: larger;
-}
-
 .incomeTable th {
     border-bottom: 2px solid #36bd9f;
-}
-
-.expensesHeader {
-    color: #e65b8e;
-    font-size: larger;
 }
 
 .expensesTable th {

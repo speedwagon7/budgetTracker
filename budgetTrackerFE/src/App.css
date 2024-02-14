@@ -8,6 +8,17 @@
   color: white;
 }
 
+.headerRow {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 2fr;
+  padding: 12px;
+  font-size: x-large !important;
+}
+
+.dateContainer {
+  margin: 0px 14px 0px 0px;
+}
+
 .mainRow {
   display: grid;
   grid-template-rows: 20% 80%;
@@ -24,13 +35,25 @@
 }
 
 .dataTable {
-margin: 0px 14px 0px 0px;
+  margin: 0px 14px 0px 0px;
 }
 
+.incomeHeader {
+  color: #36bd9f;
+  font-size: larger;
+  margin-right: 14px;
+}
 
+.expensesHeader {
+  color: #e65b8e;
+  font-size: larger;
+  margin-right: 14px;
+}
 
-
-
+.savingsHeader {
+  color: #f9bb03;
+  font-size: larger;
+}
 
 
 
