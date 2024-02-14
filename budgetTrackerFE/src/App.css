@@ -10,9 +10,10 @@
 
 .headerRow {
   display: grid;
-  grid-template-columns: 3fr 2fr 2fr 2fr;
+  grid-template-columns: 9fr 5fr 5fr 5fr 3fr;
   padding: 12px;
   font-size: x-large !important;
+  text-align: center;
 }
 
 .dateContainer {
@@ -40,18 +41,18 @@
 
 .incomeHeader {
   color: #36bd9f;
-  font-size: larger;
-  margin-right: 14px;
 }
 
 .expensesHeader {
   color: #e65b8e;
-  font-size: larger;
-  margin-right: 14px;
 }
 
 .savingsHeader {
   color: #f9bb03;
+}
+
+.total {
+  margin-right: 14px;
   font-size: larger;
 }
 

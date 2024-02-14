@@ -4,8 +4,8 @@ import TotalContainer from './TotalContainer';
 import RowHeader from './RowHeader';
 import RowTable from './RowTable';
 import RowVisualisation from './RowVisualisation';
-import IncomeData from '../MockData/MOCK_DATA_Income.json';
-import ExpensesData from '../MockData/MOCK_DATA_Expenses.json';
+import IncomeData from '../mockData/MOCK_DATA_Income.json';
+import ExpensesData from '../mockData/MOCK_DATA_Expenses.json';
 
 
 
@@ -18,14 +18,17 @@ const LandingPage = () => {
                         <div className="rowObject dateContainer">
                             <DateContainer content="January" />
                         </div>
-                        <div className="rowObject incomeHeader">
+                        <div className="rowObject incomeHeader total">
                             <TotalContainer content="Total Income" className="incomeHeader" />
                         </div>
-                        <div className="rowObject expensesHeader">
+                        <div className="rowObject expensesHeader total">
                             <TotalContainer content="Total Expenses" className="expensesHeader" />
                         </div>
-                        <div className="rowObject savingsHeader">
+                        <div className="rowObject savingsHeader total">
                             <TotalContainer content="Total Savings" className="savingsHeader" />
+                        </div>
+                        <div className="rowObject">
+                            <TotalContainer content="User" className="userMenu" />
                         </div>
                     </div>
                     <div className="mainRow">
