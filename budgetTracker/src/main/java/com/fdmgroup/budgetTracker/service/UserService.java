@@ -17,20 +17,18 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepo;
-
-	public User saveUser(User user)
-	{
-		return userRepo.save(user);
-	}
-
-	public void deleteUser(User user) {
-		userRepo.delete(user);
-	}
+	@Autowired
+	private JWTService jwtService;
+	@Autowired
+	private EncryptionService encryptionService;
 
 	public User registerUser(RegistrationBody registrationBody) throws UserAlreadyExistsException {
+		if (userRepo.findByEmail(registrationBody.getEmail()).isPresent()) {
+			throw new UserAlreadyExistsException();
+		}
 		User user = new User();
 		user.setEmail(registrationBody.getEmail());
-		user.setPassword(registrationBody.getPassword());
+		user.setPassword(encryptionService.encryptPassword(registrationBody.getPassword()));
 		return userRepo.save(user);
 	}
 
@@ -38,11 +36,11 @@ public class UserService {
 		Optional<User> opUser = userRepo.findByEmail(loginBody.getEmail());
 		if (opUser.isPresent()) {
 			User user = opUser.get();
-			//TODO EncryptionService
-			if (user.getPassword() == loginBody.getPassword()) {
+			if (encryptionService.verifyPassword(loginBody.getPassword(),user.getPassword())) {
 				return jwtService.generateJWT(user);
 			}
 		}
+		return null;
 	}
 
 }

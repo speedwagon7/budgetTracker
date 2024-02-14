@@ -1,16 +1,15 @@
 package com.fdmgroup.budgetTracker.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity()
+import java.util.List;
+
+@Entity
 @Table(name = "users")
 @Builder
 @NoArgsConstructor
@@ -20,10 +19,12 @@ import lombok.Setter;
 public class User {
 	
 	@Id
-	private long id;
-	@NotNull
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false)
+	private Long id;
+	@Column(unique = true)
 	private String email;
-	@NotNull
 	private String password;
+	private List<Category> categoryList;
 
 }
