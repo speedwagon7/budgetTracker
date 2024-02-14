@@ -1,4 +1,36 @@
-.App {
+.mainLayout {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 3fr 3fr;
+
+  background-color: #0b1129;
+  color: white;
+}
+
+.mainRow {
+  display: grid;
+  grid-template-rows: 20px calc(100vh-20px);
+}
+
+.rowContent {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.rowHeader.income {
+  color: #36bd9f;
+}
+
+.rowHeader.expenses {
+  color: #e65b8e;
+}
+
+
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +67,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

@@ -5,6 +5,10 @@ import LandingPage from './components/LandingPage';
 
 function App() {
   return (
+    <React.Fragment>
+      <LandingPage />
+    </React.Fragment>
+
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
@@ -20,10 +24,7 @@ function App() {
     //       Learn React
     //     </a>
     //   </header>
-    // </div>
-    <React.Fragment>
-      <LandingPage />
-    </React.Fragment>
+    // </div>    
   );
 }
 
