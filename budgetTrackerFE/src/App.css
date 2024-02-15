@@ -1,4 +1,64 @@
-.App {
+.mainLayout {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 3fr 3fr;
+
+  background-color: #0b1129;
+  color: white;
+}
+
+.headerRow {
+  display: grid;
+  grid-template-columns: 9fr 5fr 5fr 5fr 3fr;
+  padding: 12px;
+  font-size: x-large !important;
+  text-align: center;
+}
+
+.dateContainer {
+  margin: 0px 14px 0px 0px;
+}
+
+.mainRow {
+  display: grid;
+  grid-template-rows: 20% 80%;
+  padding: 12px;
+}
+
+.rowContent {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.rowObject {
+  background-color: #142138;
+}
+
+.dataTable {
+  margin: 0px 14px 0px 0px;
+}
+
+.incomeHeader {
+  color: #36bd9f;
+}
+
+.expensesHeader {
+  color: #e65b8e;
+}
+
+.savingsHeader {
+  color: #f9bb03;
+}
+
+.total {
+  margin-right: 14px;
+  font-size: larger;
+}
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +95,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

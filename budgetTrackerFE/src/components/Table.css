@@ -1,0 +1,31 @@
+table {
+    padding: 12px 7px 7px 7px;
+    font-size: small;
+}
+
+td {
+    padding-bottom: 3px;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+    width: 50%;
+}
+
+th:nth-child(2),
+td:nth-child(2),
+th:nth-child(3),
+td:nth-child(3),
+th:nth-child(4),
+td:nth-child(4) {
+    width: 17%;
+
+}
+
+.incomeTable th {
+    border-bottom: 2px solid #36bd9f;
+}
+
+.expensesTable th {
+    border-bottom: 2px solid #e65b8e;
+}
