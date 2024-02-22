@@ -8,25 +8,33 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.List;
 
+
 @Entity
-@Table(name = "users")
+@Table(name = "budget_categories")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-
-public class User {
+public class BudgetCategory {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Long id;
-	@Column(unique = true)
-	private String email;
-	private String password;
 	@Column
-	@OneToMany(mappedBy = "user")
-	private List<BudgetCategory> budgetCategoryList;
+	private String categoryName;
+	@Column
+	private int budget;
+	@Column
+	private int actual;
+	@OneToMany(mappedBy = "budgetCategory")
+	private List<Expense> expenses;
+	@ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+	private User user;
+	@ManyToOne(optional = false)
+	private Category category;
 
 }
+
