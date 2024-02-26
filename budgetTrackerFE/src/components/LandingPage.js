@@ -31,20 +31,7 @@ const LandingPage = () => {
                             <TotalContainer content="User" className="userMenu" />
                         </div>
                     </div>
-                    <div className="mainRow">
-                        <div className="incomeHeader">
-                            <RowHeader headerText="Income" />
-                        </div>
-                        <div className="rowContent">
-                            <div className="dataTable rowObject">
-                                <RowTable data={IncomeData} className="incomeTable" />
-                            </div>
-                            <div className="rowObject">
-                                <RowVisualisation />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="mainRow">
+                    <div className="expenseRow">
                         <div className="expensesHeader">
                             <RowHeader headerText="Expenses" />
                         </div>
@@ -55,6 +42,38 @@ const LandingPage = () => {
                             <div className="rowObject">
                                 <RowVisualisation />
                             </div>
+                        </div>
+                    </div>
+                    <div className="categorySummary">
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        </div>
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Expenses" className="expensesHeader" />
+                        </div>
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Savings" className="savingsHeader" />
+                        </div>
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        </div>
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        </div>
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        </div>
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        </div>
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        </div>
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        </div>
+                        <div className="rowObject total">
+                            <TotalContainer content="Total Income" className="incomeHeader" />
                         </div>
                     </div>
                 </div>
