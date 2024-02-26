@@ -23,8 +23,6 @@ public class BudgetCategory {
 	@Column(name = "id", nullable = false)
 	private Long id;
 	@Column
-	private String categoryName;
-	@Column
 	private int budget;
 	@Column
 	private int actual;
@@ -35,6 +33,13 @@ public class BudgetCategory {
 	private User user;
 	@ManyToOne(optional = false)
 	private Category category;
+
+	public BudgetCategory(User user, Category category){
+		this.budget = 0;
+		this.actual = 0;
+		this.category = category;
+		this.user = user;
+	}
 
 }
 

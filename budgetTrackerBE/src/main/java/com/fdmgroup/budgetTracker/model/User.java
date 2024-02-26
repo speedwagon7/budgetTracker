@@ -6,13 +6,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 
@@ -28,5 +30,10 @@ public class User {
 	@Column
 	@OneToMany(mappedBy = "user")
 	private List<BudgetCategory> budgetCategoryList;
+
+	public User(List<BudgetCategory> premadeBudgetCategoryList){
+		this.budgetCategoryList = premadeBudgetCategoryList;
+	}
+
 
 }
