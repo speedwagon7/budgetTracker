@@ -35,6 +35,8 @@ public class UserService {
 		if (userRepo.findByEmail(registrationBody.getEmail()).isPresent()) {
 			throw new UserAlreadyExistsException();
 		}
+
+		//create budget category for each category when user is created, then save them into the budget category repo
 		List<Category> categoryList = categoryRepo.findAll();
 		
 		User user = new User();
