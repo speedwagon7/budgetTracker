@@ -9,7 +9,7 @@ import ExpensesData from '../../MockData/MOCK_DATA_Expenses.json';
 
 
 
-const LandingPage = () => {
+const Home = () => {
     return (
         <React.Fragment>
             <section>
@@ -82,4 +82,4 @@ const LandingPage = () => {
     )
 }
 
-export default LandingPage
+export default Home
