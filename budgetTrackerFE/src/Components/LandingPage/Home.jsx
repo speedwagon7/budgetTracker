@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <React.Fragment>
             <section>
-                <div className="mainLayout">
+                <div className="home-page">
                     <div className="headerRow">
                         <div className="rowObject dateContainer">
                             <DateContainer content="January" />
@@ -37,7 +37,7 @@ const Home = () => {
                         </div>
                         <div className="rowContent">
                             <div className="dataTable rowObject">
-                                <RowTable data={ExpensesData} className="expensesTable" />
+                                <RowTable className="expensesTable" />
                             </div>
                             <div className="rowObject">
                                 <RowVisualisation />
