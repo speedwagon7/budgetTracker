@@ -1,6 +1,7 @@
 table {
     padding: 12px 7px 7px 7px;
     font-size: small;
+    width: 100%;
 }
 
 td {

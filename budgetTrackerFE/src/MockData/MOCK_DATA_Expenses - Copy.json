@@ -1,0 +1,8 @@
+[{"Category":"Rent","Goal":"£750.00","Actual":"£750.00","expenses": [{},{}]},
+{"Category":"Bills","Goal":"£200.00","Actual":"£187.00","expenses": [{},{}]},
+{"Category":"Transport","Goal":"£56.00","Actual":"£62.00","expenses": [{},{}]},
+{"Category":"Groceries","Goal":"£120.00","Actual":"£101.50","expenses": [{},{}]},
+{"Category":"Shopping","Goal":"£100.00","Actual":"£97.00","expenses": [{},{}]},
+{"Category":"Gifts","Goal":"£0.00","Actual":"£0.00","expenses": [{},{}]},
+{"Category":"Charity","Goal":"£50.00","Actual":"£50.00","expenses": [{},{}]},
+{"Category":"Other","Goal":"£0.00","Actual":"£0.00","expenses": [{},{}]}]
