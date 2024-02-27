@@ -1,7 +1,7 @@
 import React from 'react';
-import './components/Table.css';
+import './Styles/Table.css';
 import './App.css';
-import LandingPage from './components/LandingPage';
+import LandingPage from './Components/LandingPage/LandingPage';
 
 function App() {
   return (

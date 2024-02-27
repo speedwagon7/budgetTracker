@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const RowTable = ({ data, className }) => {
     const columns = Object.keys(data[0]);

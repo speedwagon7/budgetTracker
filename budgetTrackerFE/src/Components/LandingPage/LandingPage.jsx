@@ -4,8 +4,8 @@ import TotalContainer from './TotalContainer';
 import RowHeader from './RowHeader';
 import RowTable from './RowTable';
 import RowVisualisation from './RowVisualisation';
-import IncomeData from '../MockData/MOCK_DATA_Income.json';
-import ExpensesData from '../MockData/MOCK_DATA_Expenses.json';
+import IncomeData from '../../MockData/MOCK_DATA_Income.json';
+import ExpensesData from '../../MockData/MOCK_DATA_Expenses.json';
 
 
 
