@@ -1,30 +1,23 @@
 import React from 'react';
-import './components/Table.css';
-import './App.css';
-import LandingPage from './components/LandingPage';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import './Styles/App.css';
+import NotFoundPage from './Components/PageNotFound';
+import RegisterPage from './Components/RegisterPage/RegisterPage';
+import LoginPage from './Components/LoginPage/LoginPage';
+import HomePage from './Components/LandingPage/Home';
 
 function App() {
   return (
-    <React.Fragment>
-      <LandingPage />
-    </React.Fragment>
-
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>    
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Router>
   );
 }
 
