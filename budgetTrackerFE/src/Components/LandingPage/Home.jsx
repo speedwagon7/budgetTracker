@@ -14,66 +14,66 @@ const Home = () => {
         <React.Fragment>
             <section>
                 <div className="home-page">
-                    <div className="headerRow">
-                        <div className="rowObject dateContainer">
+                    <div className="header-row">
+                        <div className="row-object dateContainer">
                             <DateContainer content="January" />
                         </div>
-                        <div className="rowObject incomeHeader total">
+                        <div className="row-object incomeHeader total">
                             <TotalContainer content="Total Income" className="incomeHeader" />
                         </div>
-                        <div className="rowObject expensesHeader total">
+                        <div className="row-object expensesHeader total">
                             <TotalContainer content="Total Expenses" className="expensesHeader" />
                         </div>
-                        <div className="rowObject savingsHeader total">
+                        <div className="row-object savingsHeader total">
                             <TotalContainer content="Total Savings" className="savingsHeader" />
                         </div>
-                        <div className="rowObject">
+                        <div className="row-object">
                             <TotalContainer content="User" className="userMenu" />
                         </div>
                     </div>
-                    <div className="expenseRow">
-                        <div className="expensesHeader">
+                    <div className="expense-row">
+                        <div className="expenses-header">
                             <RowHeader headerText="Expenses" />
                         </div>
-                        <div className="rowContent">
-                            <div className="dataTable rowObject">
+                        <div className="expense-row-content">
+                            <div className="dataTable row-object">
                                 <RowTable className="expensesTable" />
                             </div>
-                            <div className="rowObject">
+                            <div className="row-object">
                                 <RowVisualisation />
                             </div>
                         </div>
                     </div>
-                    <div className="categorySummary">
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Income" className="incomeHeader" />
+                    <div className="category-summary-row">
+                        <div className="row-object total">
+                            <TotalContainer content="Bills" className="incomeHeader" />
                         </div>
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Expenses" className="expensesHeader" />
+                        <div className="row-object total">
+                            <TotalContainer content="Charity" className="expensesHeader" />
                         </div>
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Savings" className="savingsHeader" />
+                        <div className="row-object total">
+                            <TotalContainer content="Eating Out" className="expensesHeader" />
                         </div>
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        <div className="row-object total">
+                            <TotalContainer content="Entertainment" className="incomeHeader" />
                         </div>
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        <div className="row-object total">
+                            <TotalContainer content="Groceries" className="incomeHeader" />
                         </div>
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        <div className="row-object total">
+                            <TotalContainer content="Health" className="incomeHeader" />
                         </div>
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        <div className="row-object total">
+                            <TotalContainer content="Holidays" className="incomeHeader" />
                         </div>
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        <div className="row-object total">
+                            <TotalContainer content="Other" className="incomeHeader" />
                         </div>
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        <div className="row-object total">
+                            <TotalContainer content="Shopping" className="incomeHeader" />
                         </div>
-                        <div className="rowObject total">
-                            <TotalContainer content="Total Income" className="incomeHeader" />
+                        <div className="row-object total">
+                            <TotalContainer content="Transport" className="incomeHeader" />
                         </div>
                     </div>
                 </div>

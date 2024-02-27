@@ -7,8 +7,6 @@
   width: 100%;
   height: 100vh;
 
-  /* padding: 12px; */
-
   display: grid;
   grid-template-rows: 1fr 4fr 1fr;
 
@@ -16,97 +14,57 @@
   color: white;
 }
 
-.headerRow {
+.header-row {
   display: grid;
   grid-template-columns: 9fr 5fr 5fr 5fr 3fr;
-  padding: 7px;
+
+  margin: 7px;
+
   font-size: x-large !important;
   text-align: center;
 }
 
-/* .dateContainer {
-  margin: 7px;
-} */
-
-.expenseRow {
+.expense-row {
   display: grid;
   grid-template-rows: 40px auto;
-  /* 20px calc(100%-20px) */
-  padding: 12px;
+  margin: 0px 7px 7px 7px;
 }
 
-.categorySummary {
+.category-summary-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 0px 7px 7px 7px;
 }
 
-.rowContent {
+.expenses-header {
+  margin: 7px;
+  color: #e65b8e;
+}
+
+.expense-row-content {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
 
-.rowObject {
+.row-object {
   background-color: #142138;
   margin: 7px;
-}
-
-/* .dataTable {
-  margin: 0px 14px 0px 0px;
-} */
-
-.incomeHeader {
-  color: #36bd9f;
-}
-
-.expensesHeader {
-  color: #e65b8e;
 }
 
 .savingsHeader {
   color: #f9bb03;
 }
 
-/* .total {
-  margin-right: 14px;
-  font-size: larger;
-} */
-
-
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
+/*
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
-} */
+}
+
+*/
