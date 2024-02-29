@@ -38,7 +38,7 @@ public class BudgetCategoryController {
            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
        }
    }
-   @GetMapping("/")
+   @GetMapping()
     public ResponseEntity<List<BudgetCategory>> getAllBudgetCategories(@AuthenticationPrincipal User user) {
         try {
            return ResponseEntity.ok().body(budgetCategoryService.getAllBudgetCategories(user));

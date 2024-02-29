@@ -10,6 +10,8 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "users")
 @Builder
@@ -28,7 +30,8 @@ public class User {
 	private String email;
 	private String password;
 	@Column
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST, fetch=FetchType.EAGER, orphanRemoval = true)
+	@JsonManagedReference
 	private List<BudgetCategory> budgetCategoryList;
 
 	public User(List<BudgetCategory> premadeBudgetCategoryList){
