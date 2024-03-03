@@ -32,22 +32,32 @@ const AddExpenseForm = ({ open, handleClose, handleExpenseAddition }) => {
     };
 
     const handleSubmit = () => {
+        // Check if all fields are filled out
+        if (!category || !description || !price) {
+            // If any field is empty, display an error message or handle it as per your UI/UX design
+            console.log('Please fill out all fields');
+            return;
+        }
+    
         // Handle submission logic here
         console.log('Category:', category);
         console.log('Description:', description);
         console.log('Price:', price);
-
+    
         // Pass data back to Home component
         handleExpenseAddition(category, parseFloat(price));
-
+    
         // Clear form fields
         setCategory('');
         setDescription('');
         setPrice('');
-
+    
         // Close dialog
         handleClose();
     };
+
+    // Disable the "Add" button if any of the fields are empty
+    const isSubmitDisabled = !category || !description || !price;
 
     return (
         <Dialog open={open} onClose={handleClose}>
@@ -84,7 +94,7 @@ const AddExpenseForm = ({ open, handleClose, handleExpenseAddition }) => {
                 <Button onClick={handleClose} color="primary">
                     Cancel
                 </Button>
-                <Button onClick={handleSubmit} color="primary">
+                <Button onClick={handleSubmit} color="primary" disabled={isSubmitDisabled}>
                     Add
                 </Button>
             </DialogActions>
