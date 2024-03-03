@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+import { Button} from 'react-bootstrap';
 import DateContainer from './DateContainer';
 import TotalContainer from './TotalContainer';
 import RowHeader from './RowHeader';
@@ -6,10 +8,22 @@ import RowTable from './RowTable';
 import RowVisualisation from './RowVisualisation';
 import IncomeData from '../../MockData/MOCK_DATA_Income.json';
 import ExpensesData from '../../MockData/MOCK_DATA_Expenses.json';
+import AddExpenseForm from './AddExpenseForm';
 
 
 
 const Home = () => {
+    const [open, setOpen] = useState(false);
+
+
+    const handleOpen = () => {
+        setOpen(true);
+      };
+    
+      const handleClose = () => {
+        setOpen(false);
+      };
+
     return (
         <React.Fragment>
             <section>
@@ -38,7 +52,12 @@ const Home = () => {
                         <div className="expense-row-content">
                             <div className="dataTable row-object">
                                 <RowTable className="expensesTable" />
+                                <div>
+                                <Button onClick={handleOpen}>Add Expense</Button>
+                                <AddExpenseForm open={open} handleClose={handleClose} />
+                                </div>
                             </div>
+                            
                             <div className="row-object">
                                 <RowVisualisation />
                             </div>
