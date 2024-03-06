@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
 
 @Entity
 @Table(name = "budget_categories")
@@ -26,10 +30,12 @@ public class BudgetCategory {
 	private int budget;
 	@Column
 	private int actual;
-	@OneToMany(mappedBy = "budgetCategory")
+	@OneToMany(mappedBy = "budgetCategory", cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval = true)
+	@JsonManagedReference
 	private List<Expense> expenses;
 	@ManyToOne
     @JoinColumn(name="user_id", nullable=false)
+	@JsonBackReference
 	private User user;
 	@ManyToOne(optional = false)
 	private Category category;
