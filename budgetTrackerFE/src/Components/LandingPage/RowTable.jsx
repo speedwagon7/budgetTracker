@@ -6,12 +6,14 @@ import "../../Styles/Table.css";
 const RowTable = ({ className }) => {
   const [expensesData, setExpensesData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const columns = ["Category", "Budget", "Actual","Difference"]
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetchBudgetCategories();
         setExpensesData(response);
+        console.log(response)
       } catch (error) {
         console.error("Error fetching expenses:", error);
       } finally {
@@ -21,8 +23,6 @@ const RowTable = ({ className }) => {
 
     fetchData();
   }, []);
-
-  const columns = expensesData.length > 0 ? Object.keys(expensesData[0]) : [];
 
   if (loading) {
     return (
@@ -51,9 +51,10 @@ const RowTable = ({ className }) => {
         <tbody>
           {expensesData.map((row, index) => (
             <tr key={index}>
-              {columns.map((column) => (
-                <td key={column}>{row[column]}</td>
-              ))}
+                <td>{row["category"]["categoryName"]}</td>
+                <td>{row["budget"]}</td>
+                <td>{row["actual"]}</td>
+                <td>{row["budget"] - row["actual"]}</td>
             </tr>
           ))}
         </tbody>

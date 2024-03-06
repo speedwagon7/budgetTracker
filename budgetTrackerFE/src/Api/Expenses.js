@@ -8,7 +8,7 @@ export const fetchBudgetCategories = async () => {
 
         // return response.data;
         const jwt = localStorage.getItem("jwt")
-        await fetch(`${BASE_URL}/categories`, {
+        const data = await fetch(`${BASE_URL}/categories`, {
             "method" : "GET",
             "headers" : {
                 "Content-Type" : "application/json",
@@ -22,12 +22,14 @@ export const fetchBudgetCategories = async () => {
         }).catch((response) =>{
             console.log(response)
         })
+        return data
 
     } catch (error) {
         alert('Error fetching expense categories:', error)
         console.error('Error fetching expense categories:', error);
         return [];
     }
+   
 };
 export const postExpense = async (postData) => {
     try {
