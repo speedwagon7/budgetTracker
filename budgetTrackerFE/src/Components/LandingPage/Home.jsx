@@ -22,12 +22,12 @@ const Home = () => {
         setOpen(false);
     };
 
-    const handleExpenseAddition = (category, price) => {
+    const handleExpenseAddition = (category, description, price) => {
         const updatedExpenses = { ...expensesByCategory };
         if (!updatedExpenses[category]) {
             updatedExpenses[category] = [];
         }
-        updatedExpenses[category].push(price);
+        updatedExpenses[category].push({description, price});
         setExpensesByCategory(updatedExpenses);
     };
 
@@ -75,37 +75,12 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="category-summary-row">
-                        <div className="row-object total">
-                            <TotalContainer content="Bills" className="incomeHeader" />
-                        </div>
-                        <div className="row-object total">
-                            <TotalContainer content="Charity" className="expensesHeader" />
-                        </div>
-                        <div className="row-object total">
-                            <TotalContainer content="Eating Out" className="expensesHeader" />
-                        </div>
-                        <div className="row-object total">
-                            <TotalContainer content="Entertainment" className="incomeHeader" />
-                        </div>
-                        <div className="row-object total">
-                            <TotalContainer content="Groceries" className="incomeHeader" />
-                        </div>
-                        <div className="row-object total">
-                            <TotalContainer content="Health" className="incomeHeader" />
-                        </div>
-                        <div className="row-object total">
-                            <TotalContainer content="Holidays" className="incomeHeader" />
-                        </div>
-                        <div className="row-object total">
-                            <TotalContainer content="Other" className="incomeHeader" />
-                        </div>
-                        <div className="row-object total">
-                            <TotalContainer content="Shopping" className="incomeHeader" />
-                        </div>
-                        <div className="row-object total">
-                            <TotalContainer content="Transport" className="incomeHeader" />
-                        </div>
-                    </div>
+                        {Object.keys(expensesByCategory).map(category => (
+                            <div key={category} className="row-object total">
+                                <TotalContainer content={category} className="incomeHeader" />
+                            </div>
+                        ))}
+                </div>
                 </div>
             </section>
         </React.Fragment>
