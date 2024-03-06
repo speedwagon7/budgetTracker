@@ -1,12 +1,27 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://127.0.0.1:XXXX';
+const BASE_URL = 'http://localhost:8080';
 
-export const fetchBudjetCategories = async () => {
+export const fetchBudgetCategories = async () => {
     try {
-        const response = await axios.get(`${BASE_URL}/budget_categories`);
+        // const response = await axios.get(`${BASE_URL}/budget_categories`);
 
-        return response.data;
+        // return response.data;
+        const jwt = localStorage.getItem("jwt")
+        await fetch(`${BASE_URL}/categories`, {
+            "method" : "GET",
+            "headers" : {
+                "Content-Type" : "application/json",
+                "Authorization" : `Bearer ${jwt}`
+            }
+        }).then((response) =>{
+            if (response.status == 200) {
+                return response.json()
+            }
+            throw response
+        }).catch((response) =>{
+            console.log(response)
+        })
 
     } catch (error) {
         alert('Error fetching expense categories:', error)
@@ -14,20 +29,6 @@ export const fetchBudjetCategories = async () => {
         return [];
     }
 };
-
-export const fetchExpenses = async () => {
-    try {
-        const response = await axios.get(`${BASE_URL}/expenses`);
-
-        return response.data;
-
-    } catch (error) {
-        alert('Error fetching expenses:', error)
-        console.error('Error fetching expenses:', error);
-        return [];
-    }
-};
-
 export const postExpense = async (postData) => {
     try {
         const response = await axios.post(`${BASE_URL}/expenses`, postData);

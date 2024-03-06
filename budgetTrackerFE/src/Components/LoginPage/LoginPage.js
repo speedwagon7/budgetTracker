@@ -5,11 +5,15 @@ import { useState } from 'react';
 import { createUser, loginUser } from '../Services/UserService.js';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { useNavigate } from "react-router-dom";
+
 
 function LoginPage(){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const BASE_URL = 'http://localhost:8080';
+    const navigate = useNavigate();
 
     const handleRegister = async(e) => {
 
@@ -28,16 +32,28 @@ function LoginPage(){
     const handleLogin = async(e) => {
         
         e.preventDefault()
-        const user = {email, password}
-        console.log(user)
-
-        try {
-            loginUser(user).then((response) => {
-                console.log(response.data)
+        await fetch(`${BASE_URL}/auth/login`, {
+            "method" : "POST",
+            "headers" : {
+                "Content-Type" : "application/json"
+            },
+            "body" : JSON.stringify({
+                "email": email,
+                "password" : password
             })
-        } catch (error) {
-            console.error('Error logging in:', error);
-        }
+        }).then((response) =>{
+            if (response.status == 200) {
+                return response.json()
+            }
+            throw response
+        }).then((body) =>{
+            console.log(body.jwt)
+            localStorage.setItem("jwt", body.jwt)
+            navigate("/")
+        }).catch((response) =>{
+            console.log(response)
+        })
+
     }
     return(
         <div className='LoginBox'>

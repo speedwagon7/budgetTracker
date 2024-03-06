@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BarLoader } from "react-spinners";
-import { fetchExpenseCategories } from "../../Api/MockExpenses"; // FUTURE REAL BE DATA "../../Api/Expenses";
+import { fetchBudgetCategories } from "../../Api/Expenses"; //
 import "../../Styles/Table.css";
 
 const RowTable = ({ className }) => {
@@ -10,10 +10,10 @@ const RowTable = ({ className }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetchExpenseCategories();
+        const response = await fetchBudgetCategories();
         setExpensesData(response);
       } catch (error) {
-        console.error("Error fetching interview questions:", error);
+        console.error("Error fetching expenses:", error);
       } finally {
         setLoading(false);
       }
