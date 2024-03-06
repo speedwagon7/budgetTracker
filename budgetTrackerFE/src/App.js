@@ -6,10 +6,13 @@ import NotFoundPage from './Components/PageNotFound';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
 import LoginPage from './Components/LoginPage/LoginPage';
 import HomePage from './Components/LandingPage/Home';
+import WebNavbar from './Components/Navbar/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <Router>
+      <WebNavbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
