@@ -2,7 +2,7 @@ package com.fdmgroup.budgetTracker.service;
 
 import com.fdmgroup.budgetTracker.api.model.LoginBody;
 import com.fdmgroup.budgetTracker.api.model.RegistrationBody;
-import com.fdmgroup.budgetTracker.exception.UserAlreadyExistsException;
+import com.fdmgroup.budgetTracker.exception.EmailAlreadyRegisteredToAUserException;
 import com.fdmgroup.budgetTracker.model.BudgetCategory;
 import com.fdmgroup.budgetTracker.model.Category;
 import com.fdmgroup.budgetTracker.model.User;
@@ -13,7 +13,6 @@ import com.fdmgroup.budgetTracker.respository.BudgetCategoryRepository;
 import com.fdmgroup.budgetTracker.respository.CategoryRepository;
 import com.fdmgroup.budgetTracker.respository.UserRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,9 +30,9 @@ public class UserService {
 	@Autowired
 	private EncryptionService encryptionService;
 
-	public User registerUser(RegistrationBody registrationBody) throws UserAlreadyExistsException {
+	public User registerUser(RegistrationBody registrationBody) throws EmailAlreadyRegisteredToAUserException {
 		if (userRepo.findByEmail(registrationBody.getEmail()).isPresent()) {
-			throw new UserAlreadyExistsException();
+			throw new EmailAlreadyRegisteredToAUserException();
 		}
 
 		//create budget category for each category when user is created, then save them into the budget category repo
