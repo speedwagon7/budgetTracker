@@ -3,7 +3,7 @@ package com.fdmgroup.budgetTracker.api.controller;
 import com.fdmgroup.budgetTracker.api.model.LoginBody;
 import com.fdmgroup.budgetTracker.api.model.LoginResponse;
 import com.fdmgroup.budgetTracker.api.model.RegistrationBody;
-import com.fdmgroup.budgetTracker.exception.UserAlreadyExistsException;
+import com.fdmgroup.budgetTracker.exception.EmailAlreadyRegisteredToAUserException;
 import com.fdmgroup.budgetTracker.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +27,7 @@ public class AuthController {
         try {
             userService.registerUser(registrationBody);
             return ResponseEntity.ok().build();
-        } catch (UserAlreadyExistsException e) {
+        } catch (EmailAlreadyRegisteredToAUserException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
     }

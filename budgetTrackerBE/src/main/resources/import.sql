@@ -1,3 +1,3 @@
 INSERT INTO categories (id, category_name) VALUES (1, 'Eating Out'), (2, 'Rent'), (3, 'Health'), (4, 'Bills'), (5, 'Groceries'), (6, 'Entertainment'), (7, 'Shopping'), (8, 'Transport'), (9, 'Holidays'), (10, 'Other');
-INSERT INTO users (id, email, password) VALUES (1,'testingemail@gmail.com','TestPassword123');
+--INSERT INTO users (email, password) VALUES ('testingemail@gmail.com','TestPassword123');
 INSERT INTO budget_categories(id, budget, actual, user_id, category_id) VALUES (1, 100, 0, 1, 1);
