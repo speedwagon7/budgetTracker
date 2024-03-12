@@ -27,9 +27,9 @@ public class BudgetCategory {
 	@Column(name = "id", nullable = false)
 	private Long id;
 	@Column
-	private int budget;
+	private double budget;
 	@Column
-	private int actual;
+	private double actual;
 	@OneToMany(mappedBy = "budgetCategory", cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval = true)
 	@JsonManagedReference
 	private List<Expense> expenses;

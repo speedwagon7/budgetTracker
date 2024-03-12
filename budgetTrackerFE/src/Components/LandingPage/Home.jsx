@@ -75,7 +75,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="category-summary-row">
-                        {Object.keys(expensesByCategory).map(category => (
+                        {expensesByCategory && Object.keys(expensesByCategory).map(category => (
                             <div key={category} className="row-object total">
                                 <TotalContainer content={category} className="incomeHeader" />
                             </div>

@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './LoginPage.css';
 import { useState } from 'react';
-import { createUser, loginUser } from '../Services/UserService.js';
+import { createUser, loginUser } from './UserService';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { useNavigate } from "react-router-dom";

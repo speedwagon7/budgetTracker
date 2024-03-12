@@ -17,13 +17,14 @@ import com.fdmgroup.budgetTracker.service.BudgetCategoryService;
 
 import lombok.AllArgsConstructor;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/categories")
 @AllArgsConstructor
 public class BudgetCategoryController {
 
@@ -33,6 +34,7 @@ public class BudgetCategoryController {
     public ResponseEntity addCategory(@RequestBody BudgetCategory budgetCategory) {
         try {
             budgetCategoryService.addBudgetCategory(budgetCategory);
+            
            return ResponseEntity.ok().build();
        } catch (Exception e) {
            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
