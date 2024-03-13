@@ -2,10 +2,10 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './LoginPage.css';
 import { useState } from 'react';
-import { createUser, loginUser } from './UserService';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { useNavigate } from "react-router-dom";
+import { createUser } from './UserService';
 
 
 function LoginPage(){
@@ -21,13 +21,13 @@ function LoginPage(){
         const user = {email, password}
         console.log(user)
 
-        try {
-            createUser(user).then((response) => {
-                console.log(response.data)
-            })
-        } catch (error) {
-            console.error('Error registering:', error);
-        }
+            try {
+                createUser(user).then((response) => {
+                    console.log(response.data)
+                })
+            } catch (error) {
+                console.error('Error registering:', error);
+            }
     }
     const handleLogin = async(e) => {
         
@@ -42,7 +42,7 @@ function LoginPage(){
                 "password" : password
             })
         }).then((response) =>{
-            if (response.status == 200) {
+            if (response.status === 200) {
                 return response.json()
             }
             throw response

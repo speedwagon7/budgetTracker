@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Button} from 'react-bootstrap';
 import DateContainer from './DateContainer';
@@ -6,22 +6,16 @@ import TotalContainer from './TotalContainer';
 import RowHeader from './RowHeader';
 import RowTable from './RowTable';
 import RowVisualisation from './RowVisualisation';
-import IncomeData from '../../MockData/MOCK_DATA_Income.json';
-import ExpensesData from '../../MockData/MOCK_DATA_Expenses.json';
+
 import AddExpenseForm from './AddExpenseForm';
+import { fetchBudgetCategories } from '../../Api/Expenses';
 
 const Home = () => {
     const [open, setOpen] = useState(false);
     const [expensesByCategory, setExpensesByCategory] = useState({});
-
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
+    const [expensesData, setExpensesData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
     const handleExpenseAddition = (category, description, price) => {
         const updatedExpenses = { ...expensesByCategory };
         if (!updatedExpenses[category]) {
@@ -31,9 +25,29 @@ const Home = () => {
         setExpensesByCategory(updatedExpenses);
     };
 
-    const calculateTotalForCategory = (category) => {
-        if (!expensesByCategory[category]) return 0;
-        return expensesByCategory[category].reduce((acc, curr) => acc + curr, 0);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetchBudgetCategories();
+        setExpensesData(response);
+        console.log(response)
+      } catch (error) {
+        console.error("Error fetching expenses:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [/*handleExpenseAddition*/]);
+
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
     };
 
     return (
@@ -63,14 +77,14 @@ const Home = () => {
                         </div>
                         <div className="expense-row-content">
                             <div className="dataTable row-object">
-                                <RowTable expensesByCategory={expensesByCategory} />
+                                <RowTable expensesByCategory={expensesByCategory} expensesData={expensesData} loading={loading}/>
                                 <div>
                                     <Button onClick={handleOpen}>Add Expense</Button>
                                     <AddExpenseForm open={open} handleClose={handleClose} handleExpenseAddition={handleExpenseAddition} />
                                 </div>
                             </div>
                             <div className="row-object">
-                                <RowVisualisation />
+                                <RowVisualisation expensesData={expensesData} loading={loading}/>
                             </div>
                         </div>
                     </div>

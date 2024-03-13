@@ -14,16 +14,16 @@ import React, { useState } from "react";
 // import { Button, Dialog, DialogTitle, DialogContent, TextField, Select, MenuItem, FormControl, InputLabel, DialogActions } from '@material-ui/core';
 
 const categories = [
-  "Rent",
-  "Health",
-  "Bills",
-  "Eating out",
-  "Groceries",
-  "Entertainment",
-  "Shopping",
-  "Transport",
-  "Holidays",
-  "Other",
+  [2,"Rent"],
+  [3,"Health"],
+  [4,"Bills"],
+  [1,"Eating out"],
+  [5,"Groceries"],
+  [6,"Entertainment"],
+  [7,"Shopping"],
+  [8,"Transport"],
+  [9,"Holidays"],
+  [10,"Other"]
 ];
 
 const AddExpenseForm = ({ open, handleClose, handleExpenseAddition }) => {
@@ -50,6 +50,32 @@ const AddExpenseForm = ({ open, handleClose, handleExpenseAddition }) => {
       console.log("Please fill out all fields");
       return;
     }
+    
+    fetch('http://localhost:8080/expense/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization" : `Bearer ${localStorage.getItem("jwt")}` // adjust content type based on your API
+        // Add any other headers your API requires, such as authorization headers
+      },
+      body: JSON.stringify({
+        //to change budget category
+        "category": {id: category},
+        "title": description,
+        "price" : price
+       }), // replace with your POST data
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Post request successful');
+        return
+      } else {
+        console.error('Post request failed');
+      }
+    })
+    .catch(error => {
+      console.error('Error during POST request:', error);
+    });
 
     // Handle submission logic here
     console.log("Category:", category);
@@ -77,10 +103,10 @@ const AddExpenseForm = ({ open, handleClose, handleExpenseAddition }) => {
       <DialogContent>
         <FormControl fullWidth>
           <InputLabel>Category</InputLabel>
-          <Select value={category} onChange={handleCategoryChange}>
+          <Select value={category} onChange={(event) => handleCategoryChange(event)}>
             {categories.map((cat, index) => (
-              <MenuItem key={index} value={cat}>
-                {cat}
+              <MenuItem key={index} value={cat[0]}>
+                {cat[1]}
               </MenuItem>
             ))}
           </Select>

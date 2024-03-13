@@ -1,29 +1,9 @@
-import React, { useState, useEffect } from "react";
 import { BarLoader } from "react-spinners";
-import { fetchBudgetCategories } from "../../Api/Expenses"; //
 import "../../Styles/Table.css";
 
-const RowTable = ({ className }) => {
-  const [expensesData, setExpensesData] = useState([]);
-  const [loading, setLoading] = useState(true);
+const RowTable = ({ className, expensesData, loading }) => {
   const columns = ["Category", "Budget", "Actual","Difference"]
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetchBudgetCategories();
-        setExpensesData(response);
-        console.log(response)
-      } catch (error) {
-        console.error("Error fetching expenses:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+  
   if (loading) {
     return (
       <div className="question-loading">
